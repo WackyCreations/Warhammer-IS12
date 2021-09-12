@@ -290,6 +290,10 @@ Exterminatus
 					M.death(0) //no mercy
 				if(T && T.z==3)						//getturf, getturf z level
 					M.death(0) //no mercy
+				if(T && T.z==4)						//getturf, getturf z level
+					M.death(0) //no mercy
+				if(T && T.z==5)						//getturf, getturf z level
+					M.death(1) //some mercy
 		flick("heretics",cinematic)
 
 
@@ -315,6 +319,15 @@ Exterminatus
 		sleep(200)
 		log_game("Rebooting due to escape")
 		world.Reboot()
+		return
+
+	proc/ERT_slipstream_insertion()
+
+		var/obj/effect/landmark/ertinsert/J = locate() //where dey spawning
+		new /turf/unsimulated/floor/slipstream(J.loc)
+		var/obj/effect/landmark/ertinsert/two/L = locate() //where dey spawning
+		new	/turf/unsimulated/floor/slipstream(L.loc)
+
 		return
 
 

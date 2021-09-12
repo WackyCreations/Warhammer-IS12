@@ -9,7 +9,7 @@
 	latejoin_at_spawnpoints = TRUE
 	open_when_dead = 1
 	supervisors = "Every Imperial Citizen"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	access = list(access_hydroponics, access_bar, access_kitchen)
 	minimal_access = list(access_bar)
 	outfit_type = /decl/hierarchy/outfit/job/service/bartender
@@ -41,7 +41,7 @@
 	open_when_dead = 1
 	latejoin_at_spawnpoints = TRUE
 	supervisors = "the Seneschal, the Commissar"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	access = list(access_hydroponics, access_bar, access_kitchen, access_maint_tunnels)
 	minimal_access = list(access_kitchen)
 	announced = FALSE
@@ -70,7 +70,7 @@
 	total_positions = 2
 	spawn_positions = 1
 	supervisors = "the Seneschal"
-	selection_color = "#515151"
+	selection_color = "#848484"
 	latejoin_at_spawnpoints = TRUE
 	access = list(access_hydroponics, access_bar, access_kitchen,access_maint_tunnels, access_grox)
 	minimal_access = list(access_hydroponics, access_maint_tunnels, access_kitchen, access_grox)
@@ -102,7 +102,7 @@
 	total_positions = 1
 	spawn_positions = 1
 	supervisors = "the Seneschal and the Administrator"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	economic_modifier = 5
 	social_class = SOCIAL_CLASS_MED
 	announced = 0
@@ -117,7 +117,7 @@
 		var/current_name = H.real_name
 		..()
 		H.fully_replace_character_name("[current_name]")
-		H.add_stats(rand(13,16), rand(10,11), rand(10,11), rand(8,10))
+		H.add_stats(rand(10,16), rand(10,11), rand(10,11), rand(8,10))
 		H.add_skills(rand(1,3),rand(1,3),0,0,0)
 		H.assign_random_quirk()
 		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC)
@@ -139,7 +139,7 @@
 	social_class = SOCIAL_CLASS_MED
 	announced = 0
 	supervisors = "the Munitorum Priest, the Administrator and the Seneschal"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_maint_tunnels, access_cargo, access_cargo_bot, access_mailsorting)
 	outfit_type = /decl/hierarchy/outfit/job/cargo/cargo_tech
@@ -169,7 +169,7 @@
 	total_positions = 0
 	spawn_positions = 0 //remember to open these one day when its ready
 	supervisors = "the Munitorum Priest and the Seneschal"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	economic_modifier = 5
 	access = list(access_maint_tunnels, access_mailsorting, access_cargo, access_cargo_bot, access_qm, access_mining, access_mining_station)
 	minimal_access = list(access_mining, access_mining_station, access_mailsorting)
@@ -186,7 +186,7 @@
 	latejoin_at_spawnpoints = TRUE
 	social_class = SOCIAL_CLASS_MIN
 	supervisors = "Every Imperial Citizen"
-	selection_color = "#515151"
+	selection_color = "#337C81"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_medical)
 	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_medical)
 	//alt_titles = list("Custodian","Sanitation Technician")
@@ -224,33 +224,37 @@
 	outfit_type = /decl/hierarchy/outfit/job/librarian
 
 /datum/job/inquisitor
-	title = "Principal Agent"
+	title = "Acolyte"
 	department_flag = INQ
 	social_class = SOCIAL_CLASS_HIGH
 	total_positions = 3
 	spawn_positions = 3
 	latejoin_at_spawnpoints = TRUE
 	open_when_dead = 0
-	supervisors = "The Golden Throne, the Ministorum, the Ordos Hereticus"
-	selection_color = "#fd0707"
+	supervisors = "The Golden Throne, the Ministorum, the Inquisition."
+	selection_color = "#FF3A3A"
 	economic_modifier = 7
-	minimal_player_age = 10
-	outfit_type = /decl/hierarchy/outfit/job/internal_affairs_agent
+	minimal_player_age = 18
+	outfit_type = /decl/hierarchy/outfit/job/acolyte
+	alt_titles = list(
+		"Acolyte Of Ordo Malleus" = /decl/hierarchy/outfit/job/acolyte/malleus
+		)
 	announced = FALSE
 
 	equip(var/mob/living/carbon/human/H)
 		var/current_name = H.real_name
 		..()
-		H.fully_replace_character_name("Agent [current_name]")
-		H.add_stats(rand(10,18), rand(10,18), rand(10,18), rand(10,18)) //highly trained and skilled
-		H.add_skills(rand(5,8),rand(5,8),rand(2,4),rand(1,3),0)
+		H.fully_replace_character_name("Acolyte [current_name]")
+		H.add_stats(rand(14,18), rand(14,18), rand(14,18), rand(14,18)) //highly trained and skilled
+		H.add_skills(rand(6,10),rand(6,10),rand(4,8),rand(1,8),0)
 		H.assign_random_quirk()
 		H.witchblood()
 		H.set_trait(new/datum/trait/death_tolerant())
 		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC )
+		H.warfare_language_shit(LANGUAGE_HIGH_GOTHIC )
 		H.warfare_faction = IMPERIUM
 		H.get_idcard()?.access = get_all_accesses()
-		to_chat(H, "<span class='notice'><b><font size=3>You are a Principle agent of the Ordos Helican, your Master, a fully fledged Inquisitor has ordered you to this planet to perform reconaissance and keep an eye on the various pilgrims/penitents passing through. Report any heresy, suffer not the heretic to live.</font></b></span>")
+		to_chat(H, "<span class='notice'><b><font size=3>You are an inquisitor-in-training, referred as Acolyte, Your task is to assist the Throne Agent, Lord Inquisitor in investigating, neutralising and erasing traces of heresy, chaos, xenos and daemons.</font></b></span>")
 
 /datum/job/inquisitor/equip(var/mob/living/carbon/human/H)
 	. = ..()
@@ -258,12 +262,13 @@
 		H.implant_loyalty(H)
 
 /datum/job/leadinquisitor
-	title = "Ordos Helican Inquisitor"
-	department_flag = INQ
+	title = "Inquisitor"
+	department_flag = INQ|COM
 	social_class = SOCIAL_CLASS_MAX
 	total_positions = 1
 	spawn_positions = 1
-	supervisors = "The Golden Throne, the Ordos Hereticus, Lord Inquisitor Rorkan and the masters of the Ordos Helican"
+	head_position = 1
+	supervisors = "The Golden Throne, the Inquisition, Lord Inquisitor Rorkan and the masters of the Ordos Helican."
 	selection_color = "#fd0707"
 	req_admin_notify = 1
 	latejoin_at_spawnpoints = TRUE
@@ -271,29 +276,29 @@
 	minimal_player_age = 21
 	open_when_dead = 0
 	outfit_type = /decl/hierarchy/outfit/job/inquisitor
+	alt_titles = list(
+		"Inquisitor Of Ordo Malleus" = /decl/hierarchy/outfit/job/inquisitor/malleus
+		)
 	announced = FALSE
 
 	equip(var/mob/living/carbon/human/H)
 		var/current_name = H.real_name
 		..()
 		H.fully_replace_character_name("Inquisitor [current_name]")
-		H.add_stats(rand(14,18), rand(13,18), rand(14,18), rand(14,18)) //highly trained and skilled
-		H.add_skills(rand(7,10),rand(7,10),rand(2,4),rand(1,3),0)
+		H.add_stats(rand(16,18), rand(16,18), rand(16,18), rand(16,18)) //highly trained and skilled
+		H.add_skills(rand(7,15),rand(7,15),rand(6,12),rand(4,8),0)
 		H.assign_random_quirk()
 		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC )
+		H.warfare_language_shit(LANGUAGE_HIGH_GOTHIC )
 		H.set_trait(new/datum/trait/death_tolerant())
 		H.warfare_faction = IMPERIUM
 		H.witchblood()
-		H.get_idcard()?.access = get_all_accesses()
-		H.inquisitor = 1
 		H.verbs += list(/mob/living/carbon/human/proc/declareheretic,)
-		to_chat(H, "<span class='notice'><b><font size=3>You are a full-fledged Inquisitor of the Ordos Hereticus Helican. You answer directly to Lord Inquisitor Alessandro Rorken. He has deployed you and your team to this outpost after certain... whispers reached the ears of the Inquisition. Investigate the outpost and its surrounding village, root out any heresy with the help of your principal agents and secure the safety of the faithful. The Emperor Protects! </font></b></span>")
-
+		to_chat(H, "<span class='notice'><b><font size=3>You are a Throne Agent, Loyal servant of the Imperium. As full-fledged Inquisitor. Your task is to seek and destroy enemies of the Imperium, whether they're daemons, Chaos, Xenos or Heretics. The Emperor Protects.</font></b></span>")
 /datum/job/leadinquisitor/equip(var/mob/living/carbon/human/H)
 	. = ..()
 	if(.)
 		H.implant_loyalty(H)
-
 
 /datum/job/undertaker
 	title = "Undertaker"
@@ -306,14 +311,11 @@
 	species_role = "Child"
 	open_when_dead = 1
 	supervisors = "the Abbot and every adult you see."
-	selection_color = "#515151"
+	selection_color = "#848484"
 	access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_medical)
 	minimal_access = list(access_janitor, access_maint_tunnels, access_engine, access_research, access_medical)
 	outfit_type = /decl/hierarchy/outfit/job/service/undertaker
 	announced = FALSE
-
-
-
 	equip(var/mob/living/carbon/human/H)
 		..()
 		H.add_stats(rand(6,8), rand(5,7), rand(6,8), rand(6,8)) //kids are dumb and weak

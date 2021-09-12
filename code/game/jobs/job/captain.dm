@@ -10,7 +10,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	open_when_dead = 0
 	supervisors = "The Golden Throne and the High Lords of Terra"
-	selection_color = "#1d1d4f"
+	selection_color = "#011c77"
 	req_admin_notify = 1
 	access = list() 			//See get_access()
 	minimal_access = list() 	//See get_access()
@@ -27,7 +27,8 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 		..()
 		H.fully_replace_character_name("Rogue Trader [current_name]")
 		H.add_stats(rand(10,18), rand(10,18), rand(10,18), rand(10,18)) //RT's are really fucking random in lore so we'll make his stats random
-		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC )
+		H.add_skills(rand(1,9), rand(1,9), rand(1,9), rand(1,9), rand(1,9))
+		H.warfare_language_shit(LANGUAGE_LOW_GOTHIC)
 		H.warfare_faction = IMPERIUM
 		H.verbs += list(/mob/living/carbon/human/proc/hire,)
 		to_chat(H, "<span class='notice'><b><font size=3>You are a Rogue Trader, the owner and leader of this outpost. You wield a golden writ of authority directly from the High Lords of Terra themselves. None can command you except your lust for profit and your mission to expand Imperial influence.</font></b></span>")
@@ -50,7 +51,7 @@ var/datum/announcement/minor/captain_announcement = new(do_newscast = 1)
 	spawn_positions = 1
 	open_when_dead = 0
 	supervisors = "the Rogue Trader"
-	selection_color = "#2f2f7f"
+	selection_color = "#00494e"
 	req_admin_notify = 1
 	minimal_player_age = 25
 	economic_modifier = 10

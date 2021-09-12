@@ -14,12 +14,15 @@
 	icon_state = "concrete0"
 	walltype = "concrete"
 	mineral = "rust"
-	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois
 
 /turf/simulated/wall/concrete/strong
 	desc = "Looks much stronger than a paper sheet."
 	integrity = 7500
+
+/turf/simulated/wall/concrete/strong/chapel
+	name = "monastic stone wall"
+	desc = "Ornate stone packed together in a gothic fashion with various holy scribbles etching the framework. It looks extremely tough."
 
 /turf/simulated/wall/rust
 	desc = "An old rusty wall. It's definitely seen better days."
@@ -35,9 +38,6 @@
 
 /turf/simulated/wall/ocp_wall/New(var/newloc)
 	..(newloc)
-
-
-
 
 /turf/simulated/wall/cult
 	icon_state = "cult"
@@ -126,7 +126,6 @@
 	icon_state = "wall"
 	walltype = "wood"
 	mineral = "wood"
-	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois
 
 /turf/simulated/wall/snowcave
@@ -135,16 +134,13 @@
 	icon_state = "snow0"
 	walltype = "snow"
 	mineral = "stone"
-	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois
-
 
 /turf/simulated/wall/grim
 	name = "grim wall"
 	desc = "A grim looking metal wall"
 	icon_state = "grim0"
 	walltype = "grim"
-	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois
 
 /turf/simulated/wall/techno
@@ -152,5 +148,4 @@
 	desc = "A techno looking metal wall"
 	icon_state = "techno0"
 	walltype = "techno"
-	plane = ABOVE_HUMAN_PLANE
 	integrity = 500 //Tough bois

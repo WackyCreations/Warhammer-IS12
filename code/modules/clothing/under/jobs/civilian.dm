@@ -281,3 +281,30 @@
 	armor = list(melee = 20, bullet = 20, laser = 20, energy = 25, bomb = 30, bio = 30, rad = 10)
 	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/under/rank/ork
+	desc = "Tattered and torn from a life of battle and strife."
+	name = "ork rags"
+	icon_state = "ork_clothes"
+	item_state = "ork_clothes"
+	worn_state = "ork_clothes"
+	armor = list(melee = 20, bullet = 20, laser = 20, energy = 25, bomb = 30, bio = 30, rad = 10)
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+
+/obj/item/clothing/under/rank/ork/two
+	icon_state = "orkpants"
+	item_state = "orkpants"
+	worn_state = "orkpants"
+
+/obj/item/clothing/under/rank/ork/three
+	icon_state = "squighide"
+	item_state = "squighide"
+	worn_state = "squighide"
+
+/obj/item/clothing/under/child_jumpsuit/warfare
+	name = "scavengers's clothing"
+	desc = "A proper uniform worn by child scavengers."
+	icon_state = "urchin"
+	cold_protection = UPPER_TORSO | LOWER_TORSO | LEGS | FEET | ARMS | HANDS//So they don't freeze to death with their clothes on.
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE

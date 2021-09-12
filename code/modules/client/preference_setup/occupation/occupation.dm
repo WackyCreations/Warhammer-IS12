@@ -109,10 +109,10 @@
 		if(jobban_isbanned(user, rank))
 			. += "<del><span class='job_class'>[rank]</span></del></td><td><b> \[BANNED]</b></td></tr>"
 			continue
-		if(!job.player_old_enough(user.client))
+		/*if(!job.player_old_enough(user.client))
 			var/available_in_days = job.available_in_days(user.client)
 			. += "<del><span class='job_class'>[rank]</span></del></td><td> \[IN [(available_in_days)] DAYS]</td></tr>"
-			continue
+			continue*/
 		if(job.minimum_character_age && user.client && (user.client.prefs.age < job.minimum_character_age))
 			. += "<del><span class='job_class'>[rank]</span></del></td><td> \[MINIMUM CHARACTER AGE: [job.minimum_character_age]]</td></tr>"
 			continue
@@ -169,6 +169,10 @@
 		else
 			. += " <font color=black>\[NEVER]</font>"
 		. += "</a></td></tr>"
+	
+		if(job.alt_titles)
+			. += "</td></tr><tr bgcolor='[lastJob.selection_color]'><td width='40%' align='center'>&nbsp</td><td><a href='?src=\ref[src];select_alt_title=\ref[job]'>\[[pref.GetPlayerAltTitle(job)]\]</a></td></tr>"
+		. += "</td></tr>"
 	. += "</td'></tr></table>"
 	. += "</center></table><center>"
 	var/datum/job/high_job = SSjobs.GetJob(pref.job_high)

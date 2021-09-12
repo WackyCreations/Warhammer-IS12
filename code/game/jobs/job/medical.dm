@@ -20,10 +20,10 @@
 	announced = FALSE
 	access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks)
+			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks, access_sob)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_genetics, access_heads,
 			access_chemistry, access_virology, access_cmo, access_surgery, access_RC_announce,
-			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks)
+			access_keycard_auth, access_sec_doors, access_psychiatrist, access_eva, access_maint_tunnels, access_external_airlocks, access_sob)
 
 	minimal_player_age = 14
 	ideal_character_age = 50
@@ -35,6 +35,7 @@
 		H.fully_replace_character_name("Sister Hospitaller [current_name]")
 		H.set_trait(new/datum/trait/death_tolerant())
 		H.add_stats(rand(8,12), rand(10,16), rand(10,14), rand(14,17))
+		H.add_skills(3,3,10,0,10)
 		H.get_idcard()?.access = get_all_accesses()
 		H.get_equipped_item(slot_s_store)
 		H.warfare_faction = IMPERIUM
@@ -53,19 +54,14 @@
 	total_positions = 5
 	spawn_positions = 3
 	supervisors = "the Sister Hospitaller and the Orders Hospitaller"
-	selection_color = "#633d63"
+	selection_color = "#967096"
 	economic_modifier = 7
 	social_class = SOCIAL_CLASS_HIGH
 	open_when_dead = TRUE
 	latejoin_at_spawnpoints = TRUE
 	announced = FALSE
-	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels)
-	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_maint_tunnels,)
-//	alt_titles = list(
-//		"Surgeon" = /decl/hierarchy/outfit/job/medical/doctor/surgeon,
-//		"Emergency Physician" = /decl/hierarchy/outfit/job/medical/doctor/emergency_physician,
-//		"Nurse" = /decl/hierarchy/outfit/job/medical/doctor/nurse,
-//		"Virologist" = /decl/hierarchy/outfit/job/medical/doctor/virologist)
+	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_maint_tunnels, access_sob)
+	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_virology, access_maint_tunnels, access_sob)
 	outfit_type = /decl/hierarchy/outfit/job/medical/doctor
 
 	equip(var/mob/living/carbon/human/H)
@@ -101,13 +97,12 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Sister Hospitaller"
-	selection_color = "#633d63"
+	selection_color = "#967096"
 	economic_modifier = 5
 	latejoin_at_spawnpoints = TRUE
 	announced = FALSE
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics,access_maint_tunnels)
 	minimal_access = list(access_medical, access_medical_equip, access_chemistry,access_maint_tunnels,)
-	//alt_titles = list("Pharmacist")
 	outfit_type = /decl/hierarchy/outfit/job/medical/chemist
 
 
@@ -133,7 +128,7 @@
 	minimal_player_age = 7
 	open_when_dead = 1
 	supervisors = "the Sister Hospitaller and Magos"
-	selection_color = "#633d63"
+	selection_color = "#967096"
 	economic_modifier = 7
 	latejoin_at_spawnpoints = TRUE
 	announced = FALSE
@@ -142,12 +137,14 @@
 	outfit_type = /decl/hierarchy/outfit/job/medical/geneticist
 
 	equip(var/mob/living/carbon/human/H)
+		var/current_name = H.real_name
 		..()
+		H.fully_replace_character_name("Biologis [current_name]")
 		H.add_stats(rand(6,14), rand(8,14), rand(10,13), rand(15,20))
 		H.add_skills(rand(0,5),rand(0,5),rand(6,10),rand(3,6),10)
 		H.warfare_language_shit(LANGUAGE_MECHANICUS)
 		H.warfare_faction = IMPERIUM
-		to_chat(H, "<span class='notice'><b><font size=3>You are a Biologis, sometimes known as a Magos Biologis. You lead biological research on the outpost and oversee the construction of Skitarii.</font></b></span>")
+		to_chat(H, "<span class='notice'><b><font size=3>You are a Biologis. You lead biological research on the outpost and oversee the construction of Skitarii.</font></b></span>")
 
 /datum/job/psychiatrist
 	title = "Psychiatrist"
@@ -162,8 +159,7 @@
 	selection_color = "#633d63"
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_genetics, access_psychiatrist)
 	minimal_access = list(access_medical, access_medical_equip, access_psychiatrist)
-//	alt_titles = list("Psychologist" = /decl/hierarchy/outfit/job/medical/psychiatrist/psychologist)
-	outfit_type = /decl/hierarchy/outfit/job/medical/psychiatrist
+	outfit_type = null
 
 /datum/job/Paramedic
 	title = "Combat Medicae"
@@ -174,14 +170,13 @@
 	total_positions = 2
 	spawn_positions = 2
 	supervisors = "the Sister Hospitaller and the Commissar"
-	selection_color = "#633d63"
+	selection_color = "#967096"
 	economic_modifier = 4
 	minimal_player_age = 4
 	latejoin_at_spawnpoints = TRUE
 	announced = FALSE
 	access = list(access_medical, access_medical_equip, access_morgue, access_surgery, access_chemistry, access_virology, access_eva, access_maint_tunnels, access_external_airlocks, access_psychiatrist, access_sec_doors, access_security)
 	minimal_access = list(access_medical, access_medical_equip, access_morgue, access_eva, access_maint_tunnels, access_external_airlocks,access_sec_doors,access_security)
-//	alt_titles = list("Emergency Medical Technician" = /decl/hierarchy/outfit/job/medical/paramedic/emt)
 	outfit_type = /decl/hierarchy/outfit/job/medical/paramedic
 
 	equip(var/mob/living/carbon/human/H)

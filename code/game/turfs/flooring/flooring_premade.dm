@@ -90,11 +90,40 @@
 	icon_state = "wood"
 	initial_flooring = /decl/flooring/wood
 
+/turf/simulated/floor/new_wood
+	name = "wooden floor"
+	icon = 'icons/turf/flooring/wood.dmi'
+	icon_state = "new_wood"
+	initial_flooring = /decl/flooring/new_wood
+
+/turf/simulated/floor/new_wood/two
+	icon_state = "new_wood2"
+
+/turf/simulated/floor/new_wood/three
+	icon_state = "new_wood3"
+
+/turf/simulated/floor/new_wood/four
+	icon_state = "new_wood4"
+/turf/simulated/floor/new_wood/five
+	icon_state = "new_wood5"
+/turf/simulated/floor/new_wood/six
+	icon_state = "new_wood6"
+/turf/simulated/floor/new_wood/seven
+	icon_state = "new_wood7"
+/turf/simulated/floor/new_wood/eight
+	icon_state = "new_wood8"
+/turf/simulated/floor/new_wood/nine
+	icon_state = "new_wood9"
+
 /turf/simulated/floor/stone
 	name = "stone floor"
 	icon = 'icons/turf/flooring/stonefloor.dmi'
 	icon_state = "main"
 	initial_flooring = /decl/flooring/stone
+
+/turf/simulated/floor/stone/chapel
+	name = "monastic stone floor"
+	holy = 1
 
 /turf/simulated/floor/stone/New()
 	icon_state = pick("main","1","2","3","extra","extra1","extra2","extra3")
@@ -298,6 +327,9 @@
 	name = "lava"
 	icon = 'icons/turf/flooring/lava.dmi'
 	icon_state = "lava"
+	light_color = "#E38F46"
+	light_power = 3
+	light_range = 3
 
 /turf/simulated/floor/ice
 	name = "ice"
@@ -308,6 +340,7 @@
 	name = "snow"
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
+	movement_delay = 1.5
 	var/diggable = 1
 	var/can_be_dug = TRUE
 
